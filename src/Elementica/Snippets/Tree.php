@@ -146,11 +146,12 @@ class Tree {
 			$f = 0;       // first index
 			$t = $size-1; // last index
 			$i = -1;      // loop index
-			$count = 0;
+			$count = 0;   // init counter (keep track of changes per loop)
 			while (sizeof($marked)<$size) {
 				if (++$i>$t) {                                   // circular indexing
 					$i=$f;
 					if ($count==0) throw new Exception('!!!');   // at least one node must be marked per loop
+					$count=0;                                    // reset counter
 				};
 				$node = $this->tree[$i];                         // retrieve node (by index)
 				$id = $this->getField('id', $node);
