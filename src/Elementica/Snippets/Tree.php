@@ -165,7 +165,7 @@ class Tree {
 					} else { // ...otherwise we check if we've already marked all children
 						$childrenMarked = true;
 						foreach ($children[$id] as $child) {
-							$childrenMarked &= $marked[$child['index']];
+							$childrenMarked &= ( ( isset($marked[$child['index']]) )?( $marked[$child['index']] ):( false ) );
 						};
 						$toadd = $childrenMarked; // (if all children are marked, we can add it)
 					};
